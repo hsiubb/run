@@ -38,7 +38,7 @@ var run = function() {
 				if(gameZone.score >　(localStorage.getItem('score') || 0)) {
 					localStorage.setItem('score',gameZone.score);
 				}
-				ship.shield_num = 0;
+				ship.shield_num = 1;
 	      gameZone.canvas.style.cursor = 'default';
 				document.getElementById('game-over').style.display = 'block';
 				document.getElementById('controller').style.display = 'block';
