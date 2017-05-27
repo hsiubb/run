@@ -31,20 +31,6 @@ var run = function() {
 			this.context.font = '22px Arial';
 			this.context.fillStyle = '#fff';
 			this.context.fillText(this.score, 20, 40);
-			if(ship.shield_num > 0) {
-				this.context.font = '14px Arial';
-				this.context.fillStyle = '#fff';
-				this.context.fillText('hield: '+ship.shield_num, this.canvas.width - 104, this.canvas.height - 40);
-
-				this.context.fillStyle = '#4D5A67';
-				this.context.fillRect(this.canvas.width - 145, this.canvas.height - 75, 40, 40);
-				this.context.fillStyle = 'rgba(255, 255, 255, .5)';
-				this.context.fillRect(this.canvas.width - 140, this.canvas.height - 70, 30, 30);
-
-				this.context.font = '30px Arial';
-				this.context.fillStyle = '#123';
-				this.context.fillText('S', this.canvas.width - 135, this.canvas.height - 44);
-			}
 		},
 		stop: function() {
 			if(!ship.shield) {
@@ -72,7 +58,7 @@ var run = function() {
 		radius_speed : Math.PI / 36,
 		radiu_start : 0,
 		shield_color: '#fff',
-		shield_num : 0,
+		shield_num : 1,
 		target: function(bullet) {
       bullet.targetX = this.x + Math.random() * gameZone.difficulty - gameZone.difficulty / 2 - bullet.x;
       bullet.targetY = this.y + Math.random() * gameZone.difficulty - gameZone.difficulty / 2 - bullet.y;
@@ -136,6 +122,20 @@ var run = function() {
 				this.context.closePath();
 				this.context.fillStyle = this.shield_color;
 				this.context.fill();
+			}
+			if(this.shield_num > 0) {
+				this.context.font = '14px Arial';
+				this.context.fillStyle = '#fff';
+				this.context.fillText('hield: '+this.shield_num, full_width - 104, full_height - 40);
+
+				this.context.fillStyle = '#4D5A67';
+				this.context.fillRect(full_width - 142, full_height - 72, 35, 35);
+				this.context.fillStyle = 'rgba(255, 255, 255, .5)';
+				this.context.fillRect(full_width - 137, full_height - 67, 25, 25);
+
+				this.context.font = '20px Arial';
+				this.context.fillStyle = '#123';
+				this.context.fillText('S', full_width - 131, full_height - 47);
 			}
 			this.context.beginPath();
 			this.context.moveTo(this.left + -3, this.top + 7);
