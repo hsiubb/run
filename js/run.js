@@ -62,7 +62,7 @@ var run = function() {
     right: full_width / 2 + 5,
     top: full_height / 2,
     bottom: full_height / 2 + 5,
-		shield: true,
+		shield: false,
 		radius_speed : Math.PI / 36,
 		radiu_start : 0,
 		shield_color: '#fff',
