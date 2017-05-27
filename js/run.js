@@ -174,8 +174,8 @@ var run = function() {
       ) {
 				gameZone.running = false;
 	      gameZone.stop();
-				document.getElementById('score').innerHTML = "总分：" + gameZone.score;
-				document.getElementById('game-over').innerHTML = '游戏结束';
+				document.getElementById('score').innerHTML = "Your Score: " + gameZone.score;
+				document.getElementById('game-over').innerHTML = 'Game Over';
       };
 			if(ship.shield && Math.pow(Math.pow(ship.x - this.x, 2) + Math.pow(ship.y - this.y, 2), 1 / 2) < 30) {
 				this.x = this.endX;
@@ -311,11 +311,11 @@ var run = function() {
 			}
 		});
 
-		document.getElementById('score').innerHTML = "最高分：" + (localStorage.getItem('score') || 0);
+		document.getElementById('score').innerHTML = "Best: " + (localStorage.getItem('score') || 0);
 
 		document.getElementById('clear-score').addEventListener('click', function() {
 			localStorage.setItem('score', 0);
-			document.getElementById('score').innerHTML = "最高分：0";
+			document.getElementById('score').innerHTML = "Best: 0";
 		});
 
 		document.getElementById('start').addEventListener('click', function() {
