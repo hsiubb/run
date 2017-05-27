@@ -1,14 +1,15 @@
 
 var run = function() {
 	var bullets = [];
-  const full_width = 800;
-  const full_height = 600;
+	const full_width = window.innerWidth;
+	const full_height = window.innerHeight;
 
 	var gameZone = {
 	    canvas : document.getElementById("dodge"),
 	    start : function() {
-          this.base_speed = 1;
-					this.bullet_number = 400;
+          this.base_speed = Math.pow(full_width * full_height / 500000, 1/2);
+					this.bullet_number = Math.floor(full_width * full_height / 1000);
+					console.log(this.bullet_number);
           this.canvas.width = full_width;
           this.canvas.height = full_height;
 					this.score = 0;
