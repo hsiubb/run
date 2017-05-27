@@ -8,8 +8,7 @@ var run = function() {
 	    canvas : document.getElementById("dodge"),
 	    start : function() {
           this.base_speed = Math.pow(full_width * full_height / 500000, 1/2);
-					this.bullet_number = Math.floor(full_width * full_height / 1000);
-					console.log(this.bullet_number);
+					this.bullet_number = Math.floor(Math.pow(full_width * full_height / 3, 1/2));
           this.canvas.width = full_width;
           this.canvas.height = full_height;
 					this.score = 0;
