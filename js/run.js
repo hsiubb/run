@@ -8,6 +8,8 @@ var run = function() {
 	var gameZone = {
     canvas : document.getElementById("dodge"),
     start : function() {
+				bullets = [];
+				boosts = [];
         this.base_speed = Math.pow(full_width * full_height / 500000, 1/2);
 				this.bullet_number = Math.floor(Math.pow(full_width * full_height / 3, 1/2));
         this.canvas.width = full_width;
@@ -22,12 +24,6 @@ var run = function() {
         this.canvas.style.cursor = 'none';
 				this.running = true;
     },
-		continue: function() {
-			gameZone.canvas.style.cursor = 'none';
-			document.getElementById('game-over').innerHTML = "游戏结束";
-			document.getElementById('controller').style.display = 'none';
-			this.interval = setInterval(updateGameZone, 20);
-		},
 		clear : function() {
 			this.score += 1;
 			this.context.fillStyle = '#123';
@@ -36,9 +32,18 @@ var run = function() {
 			this.context.fillStyle = '#fff';
 			this.context.fillText(this.score, 20, 40);
 			if(ship.shield_num > 0) {
-				this.context.font = '22px Arial';
+				this.context.font = '14px Arial';
 				this.context.fillStyle = '#fff';
-				this.context.fillText('shield: '+ship.shield_num, this.canvas.width - 100, this.canvas.height - 40);
+				this.context.fillText('hield: '+ship.shield_num, this.canvas.width - 104, this.canvas.height - 40);
+
+				this.context.fillStyle = '#4D5A67';
+				this.context.fillRect(this.canvas.width - 145, this.canvas.height - 75, 40, 40);
+				this.context.fillStyle = 'rgba(255, 255, 255, .5)';
+				this.context.fillRect(this.canvas.width - 140, this.canvas.height - 70, 30, 30);
+
+				this.context.font = '30px Arial';
+				this.context.fillStyle = '#123';
+				this.context.fillText('S', this.canvas.width - 135, this.canvas.height - 44);
 			}
 		},
 		stop: function() {
@@ -47,6 +52,7 @@ var run = function() {
 				if(gameZone.score >　(localStorage.getItem('score') || 0)) {
 					localStorage.setItem('score',gameZone.score);
 				}
+				ship.shield_num = 0;
 	      gameZone.canvas.style.cursor = 'default';
 				document.getElementById('game-over').style.display = 'block';
 				document.getElementById('controller').style.display = 'block';
@@ -268,7 +274,6 @@ var run = function() {
 		gameZone.clear();
 		ship.update();
 		var ran = Math.random();
-		console.log(ran * gameZone.bonus);
 		if(ran * gameZone.bonus > 999) {
 			gameZone.bonus = 0;
 			boosts.push(new Boosts());
@@ -298,16 +303,6 @@ var run = function() {
 			evnt = evnt || window.event;
 	    ship.x = evnt.clientX + document.body.scrollLeft - document.body.clientLeft;
 			ship.y = evnt.clientY + document.body.scrollTop - document.body.clientTop;
-			if(ship.pause && ship.x >= 0 && ship.x <= full_width && ship.y >= 0 && ship.y <= full_height) {
-				ship.pause = false;
-				gameZone.continue();
-			}
-			if(gameZone.running && (ship.x < 0 || ship.x > full_width || ship.y < 0 || ship.y > full_height)) {
-				ship.pause = true;
-				document.getElementById('game-over').innerHTML = "游戏暂停";
-				document.getElementById('score').innerHTML = "当前得分：" + gameZone.score;
-				gameZone.stop();
-			}
 		};
 
 		window.addEventListener('keydown', function(evnt) {
