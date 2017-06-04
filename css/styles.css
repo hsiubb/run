@@ -33,10 +33,10 @@ html, body {
 	right: 50%;
 	bottom: 50%;
 	width: 200px;
-	height: 200px;
+	height: 260px;
 	padding: 20px;
 	margin-right: -100px;
-	margin-bottom: -100px;
+	margin-bottom: -130px;
 	color: #fff;
 	text-align: center;
 	background: rgba(16, 16, 16, .5);
@@ -72,4 +72,48 @@ html, body {
 	line-height: 40px;
 	background: #246;
 	border-radius: 5px;
+}
+.help {
+	margin-bottom: 20px;
+}
+.help .btn {
+	position: relative;
+	bottom: 2px;
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	line-height: 1.2;
+	color: #38c;
+	vertical-align: middle;
+	background: #fff;
+	border: .2em solid #ccc;
+}
+.mouse {
+	position: relative;
+	bottom: 1px;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.mouse:before {
+	content: '\0020';
+	position: absolute;
+	top: 0;
+	left: .1em;
+	width: .8em;
+	height: 1em;
+	background: #fff;
+	border-radius: .4em / .4em;
+}
+.mouse:after {
+	content: '\0020';
+	position: absolute;
+	top: 0;
+	left: .5em;
+	margin-left: -1px;
+	width: 2px;
+	height: .4em;
+	background: #666;
 }

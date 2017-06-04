@@ -214,7 +214,7 @@ var run = function() {
 		this.endX = gameZone.canvas.width;
 		this.endY = gameZone.canvas.height;
 		this.context = gameZone.canvas.getContext("2d");
-		this.speed = .5;
+		this.speed = 20;
 		switch(Math.floor(4 * Math.random().toFixed(3))) {
 			case 0:
 				this.x = 0;
@@ -235,8 +235,9 @@ var run = function() {
 		}
     this.targetX = ship.x - this.x;
     this.targetY = ship.y - this.y;
-    this.speedX = gameZone.base_speed * this.targetX / this.speed;
-    this.speedY = gameZone.base_speed * this.targetY / this.speed;
+		this.distance = Math.pow(Math.pow(this.targetX, 2) + Math.pow(this.targetY, 2), .5);
+    this.speedX = this.targetX * this.speed / this.distance;
+    this.speedY = this.targetY * this.speed / this.distance;
 		ship.target(this);
 		this.update = function() {
 			this.x += this.speedX;
