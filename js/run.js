@@ -150,7 +150,9 @@ var run = function() {
 			this.x = this.endX * (Math.floor(Math.random() * 2) * .75 + Math.random() * .25);
 			this.y = this.endY * Math.random();
 		}
-    ship.target(this);
+    // ship.target(this);
+		this.speedX = Math.random() * 2;
+		this.speedY = Math.random() * 2;
 
 		this.context = gameZone.canvas.getContext("2d");
 		this.update = function() {
