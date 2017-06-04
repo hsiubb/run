@@ -1,4 +1,3 @@
-
 var run = function() {
 	var bullets = [];
 	var boosts = [];
