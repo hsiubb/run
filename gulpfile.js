@@ -1,10 +1,10 @@
 "use strict";
 
 let gulp = require('gulp');
-let sass = require('gulp-sass');      // npm install --save-dev gulp-sass
-let babel = require('gulp-babel');  // npm install --save-dev gulp-babel
-let uglify = require('gulp-uglify');  // npm install --save-dev gulp-uglify
-let concat = require('gulp-concat');  // npm install --save-dev gulp-concat
+let sass = require('gulp-sass');           // npm install --save-dev gulp-sass
+let babel = require('gulp-babel');         // npm install --save-dev gulp-babel
+let uglify = require('gulp-uglify');       // npm install --save-dev gulp-uglify
+let concat = require('gulp-concat');       // npm install --save-dev gulp-concat
 let cleancss = require('gulp-clean-css');  // npm install --save-dev gulp-clean-css
 
 
