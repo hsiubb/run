@@ -126,16 +126,7 @@ var run = function() {
 			if(this.shield_num > 0) {
 				this.context.font = '14px Arial';
 				this.context.fillStyle = '#fff';
-				this.context.fillText('hield: '+this.shield_num, full_width - 104, full_height - 40);
-
-				this.context.fillStyle = '#4D5A67';
-				this.context.fillRect(full_width - 142, full_height - 72, 35, 35);
-				this.context.fillStyle = 'rgba(255, 255, 255, .5)';
-				this.context.fillRect(full_width - 137, full_height - 67, 25, 25);
-
-				this.context.font = '20px Arial';
-				this.context.fillStyle = '#123';
-				this.context.fillText('S', full_width - 131, full_height - 47);
+				this.context.fillText('shield: '+this.shield_num, full_width - 104, full_height - 40);
 			}
 			this.context.beginPath();
 			this.context.moveTo(this.left + -3, this.top + 7);
