@@ -85,17 +85,45 @@ html, body {
 }
 .help {
 	margin-bottom: 20px;
-	.btn {
+	// .btn {
+	// 	position: relative;
+	// 	bottom: 2px;
+	// 	display: inline-block;
+	// 	width: 1.5em;
+	// 	height: 1.5em;
+	// 	line-height: 1.2;
+	// 	color: #38c;
+	// 	vertical-align: middle;
+	// 	background: #fff;
+	// 	border: .2em solid #ccc;
+	// }
+	.mouseleft {
 		position: relative;
-		bottom: 2px;
+		bottom: 1px;
 		display: inline-block;
-		width: 1.5em;
-		height: 1.5em;
-		line-height: 1.2;
-		color: #38c;
+		width: 1em;
+		height: 1em;
+		font-size: 16px;
 		vertical-align: middle;
-		background: #fff;
-		border: .2em solid #ccc;
+		&:before, &:after {
+			content: '\0020';
+			position: absolute;
+			top: 0;
+		}
+		&:before {
+			left: .1em;
+			width: .8em;
+			height: 1em;
+			background: #fff;
+			border-radius: .4em / .4em;
+		}
+		&:after {
+			left: .1em;
+			width: .4em;
+			height: .45em;
+			border-radius: .4em 0 0;
+			background: #999;
+		}
 	}
 	.mouse {
 		position: relative;
@@ -122,7 +150,7 @@ html, body {
 			width: 2px;
 			height: .4em;
 			margin-left: -1px;
-			background: #666;
+			background: #999;
 		}
 	}
 }

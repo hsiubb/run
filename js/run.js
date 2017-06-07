@@ -34,6 +34,7 @@ var run = function() {
 		stop: function() {
 			if(!ship.shield) {
 				clearInterval(this.interval);
+				this.interval = false;
 				if(gameZone.score >　(localStorage.getItem('score') || 0)) {
 					localStorage.setItem('score',gameZone.score);
 				}
@@ -297,8 +298,14 @@ var run = function() {
 			ship.y = evnt.clientY + document.body.scrollTop - document.body.clientTop;
 		};
 
-		window.addEventListener('keydown', function(evnt) {
-			if(evnt.keyCode == 83 && ship.shield_num > 0) {
+		// window.addEventListener('keydown', function(evnt) {
+		// 	if(evnt.keyCode == 83 && ship.shield_num > 0) {
+		// 		ship.bonus.shield();
+		// 	}
+		// });
+
+		document.addEventListener('mousedown', function(evnt) {
+			if(ship.shield_num > 0 && !!gameZone.interval) {
 				ship.bonus.shield();
 			}
 		});
