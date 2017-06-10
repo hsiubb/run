@@ -1,10 +1,10 @@
-var run = function() {
-	var bullets = [];
-	var boosts = [];
+(function() {
+	let bullets = [];
+	let boosts = [];
 	const full_width = window.innerWidth;
 	const full_height = window.innerHeight;
 
-	var gameZone = {
+	let gameZone = {
     canvas : document.getElementById("dodge"),
     start : function() {
 				bullets = [];
@@ -46,7 +46,7 @@ var run = function() {
 		}
 	}
 
-	var ship = {
+	let ship = {
     context: gameZone.canvas.getContext("2d"),
     x: full_width / 2,
     y: full_height / 2,
@@ -266,16 +266,16 @@ var run = function() {
 	function updateGameZone() {
 		gameZone.clear();
 		ship.update();
-		var ran = Math.random();
+		let ran = Math.random();
 		if(ran * gameZone.bonus > 999) {
 			gameZone.bonus = 0;
 			boosts.push(new Boosts());
 		}
 
-		for(var i=0; i<bullets.length; i++) {
+		for(let i=0; i<bullets.length; i++) {
 			bullets[i].update();
 		}
-		for(var i=0; i<boosts.length; i++) {
+		for(let i=0; i<boosts.length; i++) {
 			boosts[i].update();
 		}
 	}
@@ -285,13 +285,13 @@ var run = function() {
 			document.getElementById('controller').style.display = 'none';
 	    gameZone.start();
 
-			for(var i=0; i<gameZone.bullet_number; i++) {
+			for(let i=0; i<gameZone.bullet_number; i++) {
 				bullets[i] = new Bullets();
 			}
 
 	}
 
-	var init = function() {
+	let init = function() {
 		document.onmousemove = function(evnt) {
 			evnt = evnt || window.event;
 	    ship.x = evnt.clientX + document.body.scrollLeft - document.body.clientLeft;
@@ -321,5 +321,4 @@ var run = function() {
 			get_bullets();
 		});
 	}();
-
-}();
+}());
